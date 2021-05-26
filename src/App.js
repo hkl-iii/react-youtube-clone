@@ -3,6 +3,8 @@ import './App.css';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+//  api KEY AIzaSyBMZV1ctnvz_l4iSqmXx5ldKDb6FR0h7t0
+
 function App() {
   return (
     <Container>
@@ -24,7 +26,7 @@ function App() {
         </Col>
       </Row>
       <Row>
-        <Col xs={12} lg={8} style={{border:"2px solid red"}}>Single Video</Col>
+        <Col xs={12} lg={8} style={{border:"2px solid red"}}>Video</Col>
         <Col xs={12} lg={4} style={{border:"2px solid red"}}>Suggestions</Col>
       </Row>
   </Container>
