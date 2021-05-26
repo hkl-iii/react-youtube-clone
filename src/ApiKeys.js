@@ -1,3 +1,11 @@
-import axios from 'axios';
 
-const KEY = 'AIzaSyBMZV1ctnvz_l4iSqmXx5ldKDb6FR0h7t0'
+const { YoutubeDataAPI } = require("youtube-v3-api")
+const API_KEY = 'AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg';
+
+const api = new YoutubeDataAPI(API_KEY);
+
+api.searchAll(API_KEY,"Node Js",25).then((data) => {
+    console.log(data);
+},(err) => {
+    console.error(err);
+})
