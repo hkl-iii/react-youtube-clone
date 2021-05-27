@@ -1,0 +1,56 @@
+.main{
+  display: grid;
+  grid-template-rows: 4em 65vh auto 10em;
+  grid-template-columns: 1fr 50fr 25fr 1fr;
+  grid-template-areas: 
+  " nav nav nav nav"
+  " vp vp vp vp "
+
+  " . comments recomended ."
+  " footer footer footer footer";
+  margin: 0%;
+}
+
+.NavigationBar{
+  display: grid;
+  grid-area: nav;
+  place-content: center;
+}
+
+
+.VideoPlayer{
+  display: grid;
+  place-content: center;  
+  grid-area: vp;
+  position: relative;
+  height: 100%;
+}
+iframe{
+height: 100%;
+width: auto;
+}
+
+
+.Comments{
+  display: grid;
+  grid-area: comments;
+  width: 100%;
+  place-content: center;
+  color: rgb(48, 48, 48);
+}
+
+.Recomended{
+  grid-area: recomended; 
+  text-align: center;
+  display: grid;
+  width: 100%;
+  place-content: center;
+  color: rgb(48, 48, 48);
+}
+
+.Footer{
+  display: grid;
+  place-content: center;
+  grid-area: footer;
+  height: 20px
+}
