@@ -5,7 +5,7 @@ import VideoPlayer from './VideoPlayer/videoPlayer';
 import SearchBar from './SearchBar/searchbar';
 import SuggestedVideos from './SuggestedVideos/suggestedVideos';
 import Comments from './Comment/comments';
-import axios from 'axios';
+//import axios from 'axios';
 
 
 class App extends Component {
@@ -14,15 +14,15 @@ class App extends Component {
         
         this.state = {
             AllVideos: [] ,
-            videoById:'',
+            videoById:'fZcYMQG3FBI',
         }
     }
 
-    async componentDidMount(){
-         const response = await axios.get("https://www.googleapis.com/youtube/v3/search?q=super hero&key=AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg")
-        console.log(response.data.items[0].id.videoId)
+    // async componentDidMount(){
+    //      const response = await axios.get("https://www.googleapis.com/youtube/v3/search?q=super hero&key=AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg")
+    //     console.log(response.data.items[0].id.videoId)
         
-    }
+    // }
 
 
     render() { 
