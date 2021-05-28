@@ -3,8 +3,7 @@ import './comments.css'
 
 class Comment extends Component {
     state = {
-        id: '',
-        video: '',
+        video_id: '',
         body: '',
         comment: '',
         comment_likes: '',
@@ -12,7 +11,7 @@ class Comment extends Component {
         reply: ''
      }
 
-     handleChange = (event) =>{
+     handleCommentChange = (event) =>{
          this.setState({
             [event.target.video]: event.target.value
         })
@@ -24,12 +23,15 @@ class Comment extends Component {
         const newComment = {
              //video: 'some video reference',
              body: this.state.body,
-             comment_likes: this.state.comment_likes,
-             comment_dislikes: this.state.comment_dislikes,
          }
          this.props.Comment(newComment);
      };
 
+    componentDidMount() {
+    axios.get("http://127.0.0.1:8000/comment/")
+    console.log(res.data)
+            this.setState({comments: res.data})
+    }
     render() {
         return (
             // We can add a thumbs up and down icon to the likes and dislike later. Right now im going to make
