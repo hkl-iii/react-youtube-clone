@@ -55,24 +55,38 @@ componentDidMount(){
       
         return ( 
           
-        <body class= "VideoView" style={{color: "white"}}>
+        // <div class= "VideoView" style={{color: "white"}}>
+        //   <div class="NavigationBar" style={{background: "teal"}}>
+        //     <SearchBar id="search"/>
+        //   </div>
+        //   <div class="VideoPlayer" style={{background: "orange"}}>
+        //       <VideoPlayer/>
+        //   </div>
+        //   <div className="AddComment" style={{background: "white"}}>
+        //     <Comment />
+        //   </div>
+        //   <div class="Recomended" style={{background: "grey"}}>
+        //     <SuggestedVideos  recomendedVideos={this.state.RecomendedVideos} videoID={this.state.videoById} />
+        //   </div>
+        //   <div class="Footer" style={{background: "brown"}}>
+        //     Footer
+        //   </div>
+
+        // </div>
+
+
+        <div class="searchView">
           <div class="NavigationBar" style={{background: "teal"}}>
             <SearchBar id="search"/>
           </div>
-          <div class="VideoPlayer" style={{background: "orange"}}>
-              <VideoPlayer/>
-          </div>
-          <div className="AddComment" style={{background: "white"}}>
-            <Comment />
-          </div>
-          <div class="Recomended" style={{background: "grey"}}>
-            <SuggestedVideos  recomendedVideos={this.state.RecomendedVideos} videoID={this.state.videoById} />
+          <div class="SearchBody" style={{background: "white"}}>
+            TBD
           </div>
           <div class="Footer" style={{background: "brown"}}>
-            Footer
+           Footer
+          </div>
           </div>
 
-        </body>
          );
     }
 }

@@ -18,10 +18,6 @@ class SearchBar extends Component {
         console.log('Triggered');
         event.preventDefault();
         let search  = this.state.search
-        //let start = "https://www.googleapis.com/youtube/v3/search?q="
-        //let end = "&key=AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg"
-        //let VideoSearch  = (start + search + end)
-        //const response = /*await*/ axios.get(VideoSearch)
         const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
             key:"AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg",
             q:search }})
