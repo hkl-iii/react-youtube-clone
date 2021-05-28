@@ -31,14 +31,14 @@ width: auto;
 }
 
 
-.Comments{
+/* .Comments{
   display: grid;
   grid-area: comments;
   width: 100%;
   place-content: center;
   color: rgb(48, 48, 48);
 }
-
+ */
 .Recomended{
   grid-area: recomended; 
   text-align: center;

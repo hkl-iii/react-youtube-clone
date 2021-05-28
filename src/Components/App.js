@@ -4,8 +4,8 @@ import './App.css';
 import VideoPlayer from './VideoPlayer/videoPlayer';
 import SearchBar from './SearchBar/searchbar';
 import SuggestedVideos from './SuggestedVideos/suggestedVideos';
-import Comments from './Comment/comments';
 import axios from 'axios';
+import Comment from './Comment/comments';
 
 
 class App extends Component {
@@ -34,8 +34,8 @@ class App extends Component {
           <div class="VideoPlayer" style={{background: "orange"}}>
               <VideoPlayer/>
           </div>
-          <div class="Comments" style={{background: "white"}}>
-            <Comments />
+          <div className="AddComment" style={{background: "white"}}>
+            <Comment />
           </div>
           <div class="Recomended" style={{background: "grey"}}>
             <SuggestedVideos  style={{background: "maroon"}}/>
