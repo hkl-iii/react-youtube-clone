@@ -4,8 +4,8 @@ import './App.css';
 import VideoPlayer from './VideoPlayer/videoPlayer';
 import SearchBar from './SearchBar/searchbar';
 import SuggestedVideos from './SuggestedVideos/suggestedVideos';
-import Comments from './Comment/comments';
-//import axios from 'axios';
+import Comment from './Comment/comments';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -15,19 +15,47 @@ class App extends Component {
         this.state = {
             AllVideos: [] ,
             videoById:'fZcYMQG3FBI',
+            View: 'video', // or search,
+            RecomendedVideos : [],
         }
     }
 
-    // async componentDidMount(){
-    //      const response = await axios.get("https://www.googleapis.com/youtube/v3/search?q=super hero&key=AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg")
-    //     console.log(response.data.items[0].id.videoId)
-        
-    // }
+  setCurrentVidoTo(videoID){
+    this.setState({
+      videoById: videoID
+    })
+  }
 
+
+
+  async getRecomdations(){
+    const curretnVideo = this.state.videoById
+    const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
+              key:"AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg",
+              type: "video",
+              relatedToVideoId: curretnVideo,
+              maxResults: 20,
+             }})
+    console.log(response.data.items);
+    console.log('succesfully obtained the list')
+    const recomendedVideoID= response.data.items.map((video) => {return video.id.videoId});
+    console.log(recomendedVideoID)
+    this.setState({
+      RecomendedVideos: recomendedVideoID
+    });
+     }
+
+componentDidMount(){
+  this.getRecomdations()
+}
+  
 
     render() { 
+      // maybe adda nother render view called SearchView and dio some logic to be able to flip between the two. propbably on the onsubmit functinality to change the state. view in th main pp. propbably throuigh passing a function down with with rops.
+      
         return ( 
-        <body class= "main" style={{color: "white"}}>
+          
+        <body class= "VideoView" style={{color: "white"}}>
           <div class="NavigationBar" style={{background: "teal"}}>
             <SearchBar id="search"/>
           </div>
@@ -38,7 +66,7 @@ class App extends Component {
             <Comment />
           </div>
           <div class="Recomended" style={{background: "grey"}}>
-            <SuggestedVideos  style={{background: "maroon"}}/>
+            <SuggestedVideos  recomendedVideos={this.state.RecomendedVideos} videoID={this.state.videoById} />
           </div>
           <div class="Footer" style={{background: "brown"}}>
             Footer
@@ -50,3 +78,9 @@ class App extends Component {
 }
  
 export default App;
+
+
+
+
+    
+

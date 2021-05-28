@@ -3,20 +3,19 @@ import React from 'react';
 
 function SuggestedVideos(props) {
 
+    console.log("test")
+    console.log(props.recomendedVideos)
+    console.log("test complete. success")
+
     return (
         <div >
             <h1>Suggested Videos</h1>
-            <p>placeholder</p> <br/>
-            <p>placeholder</p> <br/>
-
-            <p>placeholder</p> <br/>
-            <p>placeholder</p> <br/>
-
-            <p>placeholder</p> <br/>
-            <p>placeholder</p> <br/>
-
-            <p>placeholder</p> <br/>
-            <p>placeholder</p> <br/>
+            { 
+            props.recomendedVideos.map((video)=> {
+                return (
+                <h4>{video}</h4>
+                )}
+            )} 
 
         </div>
     );
