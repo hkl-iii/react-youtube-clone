@@ -1,0 +1,34 @@
+.SuggestedVideos{
+    display: grid;
+    background-color: rgb(48, 48, 48);
+    color: blanchedalmond;
+  }
+.snippet{
+    display: grid;
+    grid-template-rows: 1fr  ;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+    "img info";
+    background-color: rgba(70, 70, 70, 0.212);
+    margin: 0%;
+    height: 90px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    text-align: left;
+  }
+
+.thumbnail{
+      grid-area: img;
+      display: grid;
+      height: 50%;
+  }
+.VideoInfo{
+    grid-area: info;
+    display: grid;
+    height: auto;
+    ;
+}
+
+h5{
+    margin: 4px;
+}

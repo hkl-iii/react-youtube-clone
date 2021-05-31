@@ -1,7 +1,7 @@
 .VideoView{
   display: grid;
-  grid-template-rows: 4em 65vh auto 10em;
-  grid-template-columns: 1fr 50fr 25fr 1fr;
+  grid-template-rows: 4em 80vh auto 10em;
+  grid-template-columns: .5fr 40fr 45fr .5fr;
   grid-template-areas: 
   " nav nav nav nav"
   " vp vp vp vp "
@@ -46,6 +46,8 @@ width: auto;
   place-content: center;
   color: rgb(48, 48, 48);
 }
+
+
 
 .Footer{
   display: grid;

@@ -5,6 +5,7 @@ import VideoPlayer from './VideoPlayer/videoPlayer';
 import SearchBar from './SearchBar/searchbar';
 import SuggestedVideos from './SuggestedVideos/suggestedVideos';
 import Comment from './Comment/comments';
+//import SearchView from "./SearchView/searchView";
 import axios from 'axios';
 
 
@@ -17,6 +18,10 @@ class App extends Component {
             videoById:'fZcYMQG3FBI',
             View: 'video', // or search,
             RecomendedVideos : [],
+            searchResults: [],
+            recomendationSnippets: [],
+            thumbnail: ""
+            
         }
     }
 
@@ -26,7 +31,12 @@ class App extends Component {
     })
   }
 
-
+  SetCurrentSearchResult(searchResults){
+    this.setState({
+      searchResults: searchResults,
+      View:"search",
+    })
+  }
 
   async getRecomdations(){
     const curretnVideo = this.state.videoById
@@ -34,15 +44,25 @@ class App extends Component {
               key:"AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg",
               type: "video",
               relatedToVideoId: curretnVideo,
-              maxResults: 20,
+              maxResults: 10,
+              part: 'snippet',
              }})
+    console.log("recomended list: (populated on sttartup)")
     console.log(response.data.items);
     console.log('succesfully obtained the list')
     const recomendedVideoID= response.data.items.map((video) => {return video.id.videoId});
-    console.log(recomendedVideoID)
+    const recomendationSnippets= response.data.items.map((video) => {return video.snippet});
+    const thumbnail= recomendationSnippets.map((video) => {return video.thumbnails.default.url});
+    console.log("the list of recomended vids. filtered by snippit")
+    console.log(recomendationSnippets)
     this.setState({
-      RecomendedVideos: recomendedVideoID
+      RecomendedVideos: recomendedVideoID,
+      recomendationSnippets: recomendationSnippets,
+      thumbnail: thumbnail,
     });
+    console.log(this.state.recomendationSnippets)
+    console.log(thumbnail)
+    console.log('hello world')
      }
 
 componentDidMount(){
@@ -54,38 +74,40 @@ componentDidMount(){
       // maybe adda nother render view called SearchView and dio some logic to be able to flip between the two. propbably on the onsubmit functinality to change the state. view in th main pp. propbably throuigh passing a function down with with rops.
       
         return ( 
-          
-        // <div class= "VideoView" style={{color: "white"}}>
-        //   <div class="NavigationBar" style={{background: "teal"}}>
-        //     <SearchBar id="search"/>
-        //   </div>
-        //   <div class="VideoPlayer" style={{background: "orange"}}>
-        //       <VideoPlayer/>
-        //   </div>
-        //   <div className="AddComment" style={{background: "white"}}>
-        //     <Comment />
-        //   </div>
-        //   <div class="Recomended" style={{background: "grey"}}>
-        //     <SuggestedVideos  recomendedVideos={this.state.RecomendedVideos} videoID={this.state.videoById} />
-        //   </div>
-        //   <div class="Footer" style={{background: "brown"}}>
-        //     Footer
-        //   </div>
-
-        // </div>
-
-
-        <div class="searchView">
+          <div>
+        <div class= "VideoView" style={{color: "white"}}>
           <div class="NavigationBar" style={{background: "teal"}}>
             <SearchBar id="search"/>
           </div>
-          <div class="SearchBody" style={{background: "white"}}>
-            TBD
+          <div class="VideoPlayer" style={{background: "orange"}}>
+              <VideoPlayer/>
+          </div>
+          <div className="AddComment" style={{background: "white"}}>
+            <Comment />
+          </div>
+          <div class="Recomended" style={{background: "rgb(31, 31, 31)"}}>
+            <SuggestedVideos recomendedVideos={this.state.recomendationSnippets} thumbnail={this.state.thumbnail} videoID={this.state.videoById} />
           </div>
           <div class="Footer" style={{background: "brown"}}>
-           Footer
+            Footer
           </div>
           </div>
+          <div style={{background: "white"}}>test </div>
+        
+        </div>
+
+
+        // <div class="searchView">
+        //   <div class="NavigationBar" style={{background: "teal"}}>
+        //     <SearchBar id="search" handleSearch={this.SetCurrentSearchResult()}/>
+        //   </div>
+        //   <div class="SearchBody" style={{background: "white"}}>
+        //     <SearchView searchResults={this.state.searchResults}/>
+        //   </div>
+        //   <div class="Footer" style={{background: "brown"}}>
+        //    Footer
+        //   </div>
+        //   </div>
 
          );
     }

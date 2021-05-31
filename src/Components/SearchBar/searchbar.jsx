@@ -7,20 +7,20 @@ class SearchBar extends Component {
         super(props);
         
         this.state = {
-            search:'',
+            search:'starting',
         }
     }
-    // async componentDidMount(){
-    //           const response = await axios.get("https://www.googleapis.com/youtube/v3/search?q={superhero}&key=AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg")
-    //           console.log(response.data.items)
-    //          }
+    
      handleSubmit = async(event) =>{
         console.log('Triggered');
         event.preventDefault();
-        let search  = this.state.search
+        const search  = this.state.search
         const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
             key:"AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg",
-            q:search }})
+            q:search,
+            maxResults: 20,
+            part:'snippet' }})
+        console.log("search results:")
         console.log(response.data.items)
         }
 
@@ -47,3 +47,10 @@ class SearchBar extends Component {
 }
  
 export default SearchBar;
+
+
+
+// async componentDidMount(){
+    //           const response = await axios.get("https://www.googleapis.com/youtube/v3/search?q={superhero}&key=AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg")
+    //           console.log(response.data.items)
+    //          }
