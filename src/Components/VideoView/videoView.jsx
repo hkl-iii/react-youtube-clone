@@ -26,7 +26,7 @@ class VideoView extends Component {
   async getRecomdations(){
     const curretnVideo = this.state.videoById
     const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
-              key:'AIzaSyD6u4DuW6kD0ZBMI791Z8exbPiDOJXUcWI',
+              key:'AIzaSyDGXXx3Ybe8MTK_HmB5HtN6eLdth0rP4ec',
               type: "video",
               relatedToVideoId: curretnVideo,
               maxResults: 10,
@@ -57,6 +57,10 @@ handleSearch(data){
     this.props.handleSearch(data)
 }
 
+selectVideo(data){
+    this.props.selectVideo(data)
+}
+
 
     render() { 
       // maybe adda nother render view called SearchView and dio some logic to be able to flip between the two. propbably on the onsubmit functinality to change the state. view in th main pp. propbably throuigh passing a function down with with rops.
@@ -67,14 +71,14 @@ handleSearch(data){
           <div class="NavigationBar"  style={{background: "teal"}}>
             <SearchBar handleSearch={(data)=>this.handleSearch(data)} id="search"/>
           </div>
-          <div class="VideoPlayer" style={{background: "orange"}}>
-              <VideoPlayer/>
+          <div class="VideoPlayer" style={{background: "black"}}>
+              <VideoPlayer videoId={this.props.videoId}/>
           </div>
           <div className="AddComment" style={{background: "white"}}>
             <Comment />
           </div>
           <div class="Recomended" style={{background: "rgb(31, 31, 31)"}}>
-            <SuggestedVideos recomendedVideos={this.state.recomendationSnippets} thumbnail={this.state.thumbnail} videoID={this.state.videoById} />
+            <SuggestedVideos selectVideo={(data)=>this.selectVideo(data)} recomendedVideos={this.state.recomendationSnippets} thumbnail={this.state.thumbnail} videoID={this.state.videoById} />
           </div>
           <div class="Footer" style={{background: "brown"}}>
             Footer

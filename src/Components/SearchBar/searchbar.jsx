@@ -17,7 +17,7 @@ class SearchBar extends Component {
         event.preventDefault();
         const search  = this.state.search
         const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
-            key:"AIzaSyD6u4DuW6kD0ZBMI791Z8exbPiDOJXUcWI",
+            key:"AIzaSyDGXXx3Ybe8MTK_HmB5HtN6eLdth0rP4ec",
             q:search,
             maxResults: 20,
             part:'snippet' }})

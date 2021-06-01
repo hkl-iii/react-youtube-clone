@@ -20,7 +20,7 @@ function SearchView(props) {
             <div class="searchGrid">
             {props.searchResults.map((video)=> {
                 return (
-                    <div class="VideoBlock" type="button" onClick>
+                    <div class="VideoBlock"  onClick={() => props.selectVideo(video.id.videoId)}>
                         <img class="img" src={video.snippet.thumbnails.medium.url} alt="thumbnail"/><br/>
                     <div class="title">
                         <h5 display="grid">{video.snippet.title}</h5><br/>

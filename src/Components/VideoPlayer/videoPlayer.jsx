@@ -7,7 +7,7 @@ function VideoPlayer(props) {
     //console.log(sourceURL)
     return (
         //<div class="Frame">
-            <iframe class="Frame" src="https://www.youtube.com/embed/fZcYMQG3FBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="Frame" src={`https://www.youtube.com/embed/${props.videoId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         //</div>
     );
 }
