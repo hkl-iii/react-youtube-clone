@@ -28,7 +28,7 @@ class VideoView extends Component {
     const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
               key:'AIzaSyDGXXx3Ybe8MTK_HmB5HtN6eLdth0rP4ec',
               type: "video",
-              relatedToVideoId: curretnVideo,
+              relatedToVideoId: this.props.videoId,
               maxResults: 10,
               part: 'snippet',
              }})
