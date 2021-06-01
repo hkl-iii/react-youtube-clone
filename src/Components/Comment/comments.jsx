@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './comments.css';
+import axios from 'axios';
 
 class Comment extends Component {
     constructor(props) {
@@ -27,14 +28,14 @@ class Comment extends Component {
             comment_likes: 0,
             comment_dislikes: 0,
         }
-        //  this.props.Comment(newComment);
+          this.PostComment(newComment)
      };
 
-    // componentDidMount() {
-    // axios.get("http://127.0.0.1:8000/comment/")
-    // console.log(response.data)
-    //      this.setState({comments: response.data})
-    // }
+     PostComment(data) {
+    axios.post("http://127.0.0.1:8000/comment/",data)
+    }
+
+
     render() {
         return (
            

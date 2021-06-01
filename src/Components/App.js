@@ -8,13 +8,9 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            AllVideos: [] ,
             videoById:'fZcYMQG3FBI',
             View: 'video', // or search,
-            RecomendedVideos : [],
             searchResults: [],
-            recomendationSnippets: [],
-            thumbnail: ""
             
         }
     }
