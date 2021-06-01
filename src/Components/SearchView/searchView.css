@@ -1,0 +1,32 @@
+
+ .searchbar{
+    display: grid;
+    width: 100vw;
+    place-content: center;
+}
+
+
+.body{
+    width: 100vw;
+    height: max-content;
+}
+
+.searchGrid{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width:98vw;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.VideoBlock{
+    text-align: left;
+    text-overflow: inherit;
+    width: 320px;
+    display: grid;
+    border: 0px;
+    margin:0px
+}

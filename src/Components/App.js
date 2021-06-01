@@ -60,7 +60,7 @@ class App extends Component {
         else if (this.state.View==='search'){
           return(
             <div>
-              <SearchView />
+              <SearchView searchResults={this.state.searchResults}/>
             </div>
       );
     }

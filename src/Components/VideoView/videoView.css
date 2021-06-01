@@ -61,18 +61,4 @@
   
   
   
-  .searchView{
-    display: grid;
-    grid-template-rows: 4em 90vh 10em;
-    grid-template-columns: 95vw ;
-    grid-template-areas: 
-    " nav"
-    " body "
-    " footer";
-    margin: 0%;
-  }
   
-  .SearchBody{
-    display: grid;
-    grid-area: body;
-  }

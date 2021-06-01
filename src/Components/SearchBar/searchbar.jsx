@@ -41,7 +41,7 @@ class SearchBar extends Component {
     render() { 
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form class="Navigationbar" onSubmit={this.handleSubmit}>
                 <input class="search" type="text" name="searchbar" placeholder="Search.." onChange={(event) => this.handleChange(event)}>
             </input>
             <button type="submit">Search</button>
