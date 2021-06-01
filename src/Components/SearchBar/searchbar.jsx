@@ -7,7 +7,8 @@ class SearchBar extends Component {
         super(props);
         
         this.state = {
-            search:'starting',
+            search:'base',
+            searchResults: [],
         }
     }
     
@@ -16,12 +17,17 @@ class SearchBar extends Component {
         event.preventDefault();
         const search  = this.state.search
         const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
-            key:"AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg",
+            key:"AIzaSyD6u4DuW6kD0ZBMI791Z8exbPiDOJXUcWI",
             q:search,
             maxResults: 20,
             part:'snippet' }})
         console.log("search results:")
         console.log(response.data.items)
+        this.setState({
+            searchResults: response.data.items,
+        })
+        this.props.handleSearch(response.data.items)
+        
         }
 
     handleChange = (event) =>{

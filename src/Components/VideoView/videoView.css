@@ -1,0 +1,78 @@
+.VideoView{
+    display: grid;
+    grid-template-rows: 4em 80vh auto 10em;
+    grid-template-columns: .5fr 40fr 45fr .5fr;
+    grid-template-areas: 
+    " nav nav nav nav"
+    " vp vp vp vp "
+    " .... comments recomended ."
+    " footer footer footer footer";
+    margin: 0%;
+  }
+  
+  .NavigationBar{
+    display: grid;
+    grid-area: nav;
+    place-content: center;
+  }
+  
+  
+  .VideoPlayer{
+    display: grid;
+    place-content: center;  
+    grid-area: vp;
+    position: relative;
+    height: 100%;
+  }
+  iframe{
+  height: 100%;
+  width: auto;
+  }
+  
+  
+  .AddComment{
+    display: grid;
+    grid-area: comments;
+    width: 100%;
+    place-content: center;
+    color: rgb(48, 48, 48);
+  }
+   
+  .Recomended{
+    grid-area: recomended; 
+    text-align: center;
+    display: grid;
+    width: 100%;
+    place-content: center;
+    color: rgb(48, 48, 48);
+  }
+  
+  
+  
+  .Footer{
+    display: grid;
+    place-content: center;
+    grid-area: footer;
+    height: 20px
+  }
+  
+  
+  
+  
+  
+  
+  .searchView{
+    display: grid;
+    grid-template-rows: 4em 90vh 10em;
+    grid-template-columns: 95vw ;
+    grid-template-areas: 
+    " nav"
+    " body "
+    " footer";
+    margin: 0%;
+  }
+  
+  .SearchBody{
+    display: grid;
+    grid-area: body;
+  }

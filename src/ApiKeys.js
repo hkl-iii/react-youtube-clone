@@ -1,6 +1,5 @@
 
 const { YoutubeDataAPI } = require("youtube-v3-api")
-const API_KEY = 'AIzaSyCRqFOe1lGNltYuiupQWPkVwBtxYrk2rsg';
+const API_KEY = 'AIzaSyD6u4DuW6kD0ZBMI791Z8exbPiDOJXUcWI';
 
-const api = new YoutubeDataAPI(API_KEY);
 

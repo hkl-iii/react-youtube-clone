@@ -1,20 +1,13 @@
 import React from 'react';
 //import './suggested.css'
 
-function searchView(props) {
+function SearchView(props) {
 
 
     return (
-        <div >
-            {/* <h1>Suggested Videos</h1>
-            { 
-            props.recomendedVideos.map((video)=> {
-                return (
-                <h4>{video}</h4>
-                )}
-            )}  */}
-
-        </div>
+        <div class="searchView">
+          test
+          </div>
     );
 }
-export default searchView;
+export default SearchView;

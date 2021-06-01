@@ -12,27 +12,27 @@ class Comment extends Component {
         reply: ''
      }
 
-     handleCommentChange = (event) =>{
-         this.setState({
-            [event.target.video]: event.target.value
-        })
-    }
+    //  handleCommentChange = (event) =>{
+    //      this.setState({
+    //         [event.target.video]: event.target.value
+    //     })
+    // }
 
-    handleCommentSubmit = (event) =>{
-        event.preventDefault();
+    // handleCommentSubmit = (event) =>{
+    //     event.preventDefault();
 
-        const newComment = {
-             //video: 'some video reference',
-             body: this.state.body,
-         }
-         this.props.Comment(newComment);
-     };
+    //     const newComment = {
+    //          //video: 'some video reference',
+    //          body: this.state.body,
+    //      }
+    //      this.props.Comment(newComment);
+    //  };
 
-    componentDidMount() {
-    axios.get("http://127.0.0.1:8000/comment/")
-    //console.log(response.data)
-       //     this.setState({comments: response.data})
-    }
+    // //componentDidMount() {
+    // //axios.get("http://127.0.0.1:8000/comment/")
+    // //console.log(response.data)
+    //    //     this.setState({comments: response.data})
+    // }
     render() {
         return (
            

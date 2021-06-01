@@ -1,3 +1,4 @@
+import { Button } from 'bootstrap';
 import React from 'react';
 import './suggested.css'
 
@@ -9,11 +10,10 @@ function SuggestedVideos(props) {
             { 
             props.recomendedVideos.map((video)=> {
                 return (
-                    <div class="snippet" >
+                    <div type={Button} class="snippet" >
                         <img class="thumbnail" src={video.thumbnails.medium.url} alt="thumbnail"/>
                     <div class="VideoInfo">
                         <h5 display="grid">{video.title}</h5><br/>
-                        <h6 display="grid">{video.channelTitle}</h6>
                     </div>
                     
                     </div>

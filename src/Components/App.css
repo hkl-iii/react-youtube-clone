@@ -1,4 +1,4 @@
-.VideoView{
+/* .VideoView{
   display: grid;
   grid-template-rows: 4em 80vh auto 10em;
   grid-template-columns: .5fr 40fr 45fr .5fr;
@@ -75,4 +75,4 @@ width: auto;
 .SearchBody{
   display: grid;
   grid-area: body;
-}
+} */
