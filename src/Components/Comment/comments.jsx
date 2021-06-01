@@ -1,37 +1,39 @@
 import React, { Component } from 'react';
 import './comments.css';
-import axios from 'axios';
 
 class Comment extends Component {
-    state = {
-        video_id: '',
-        body: '',
-        comment: '',
-        comment_likes: '',
-        comment_dislikes: '',
-        reply: ''
-     }
+    constructor(props) {
+        super(props);
+            this.state = {
+                video_id: '',
+                body: '',
+             }
+        }
+    handleChange = (event) =>{
+        this.setState({
+        body: event.target.value
+        });
+        console.log("comment content test:")
+        console.log(this.state.body)
+        console.log("end of test")
+        };
 
-    //  handleCommentChange = (event) =>{
-    //      this.setState({
-    //         [event.target.video]: event.target.value
-    //     })
-    // }
+    handleCommentSubmit = (event) =>{
+        event.preventDefault();
 
-    // handleCommentSubmit = (event) =>{
-    //     event.preventDefault();
+        const newComment = {
+            video_id: this.props.videoId,
+            body: this.state.body,
+            comment_likes: 0,
+            comment_dislikes: 0,
+        }
+        //  this.props.Comment(newComment);
+     };
 
-    //     const newComment = {
-    //          //video: 'some video reference',
-    //          body: this.state.body,
-    //      }
-    //      this.props.Comment(newComment);
-    //  };
-
-    // //componentDidMount() {
-    // //axios.get("http://127.0.0.1:8000/comment/")
-    // //console.log(response.data)
-    //    //     this.setState({comments: response.data})
+    // componentDidMount() {
+    // axios.get("http://127.0.0.1:8000/comment/")
+    // console.log(response.data)
+    //      this.setState({comments: response.data})
     // }
     render() {
         return (
@@ -44,12 +46,18 @@ class Comment extends Component {
            
            
            <div>
-                <form onSubmit={(event) => this.handleSubmit(event)}>
+                <form className="commentForm" onSubmit={(event) => this.handleSubmit(event)}>
                     <div>
                         <label>Comment</label>
-                        <input type="text" name="body" /*onChange={(event) => this.handleChange(event)}*//>
-                    </div>                
-                    <button type="submit" >Comment</button>                    
+                    </div> 
+                    <div>
+                        <input type="text" name="body" onChange={(event) => this.handleChange(event)}/>
+                    </div>
+                                   
+                    <button type="submit" >Comment</button>
+                    <button onClick="" >Like</button>                    
+                    <button onClick="" >Dislike</button>                    
+                    
                 </form>
             </div>
          );

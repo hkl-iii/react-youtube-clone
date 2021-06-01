@@ -28,7 +28,7 @@ class VideoView extends Component {
     const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
               key:'AIzaSyDGXXx3Ybe8MTK_HmB5HtN6eLdth0rP4ec',
               type: "video",
-              relatedToVideoId: this.props.videoId,
+              relatedToVideoId: this.state.videoById,
               maxResults: 10,
               part: 'snippet',
              }})
@@ -75,7 +75,7 @@ selectVideo(data){
               <VideoPlayer videoId={this.props.videoId}/>
           </div>
           <div className="AddComment" style={{background: "white"}}>
-            <Comment />
+            <Comment videoId={this.state.videoById}/>
           </div>
           <div class="Recomended" style={{background: "rgb(31, 31, 31)"}}>
             <SuggestedVideos selectVideo={(data)=>this.selectVideo(data)} recomendedVideos={this.state.recomendationSnippets} thumbnail={this.state.thumbnail} videoID={this.state.videoById} />
