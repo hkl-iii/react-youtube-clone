@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import './searchbar.css'
 import axios from 'axios';
+import API_KEY from '../ApiKeys';
+
 
 class SearchBar extends Component {
     constructor(props) {
@@ -17,7 +19,7 @@ class SearchBar extends Component {
         event.preventDefault();
         const search  = this.state.search
         const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
-            key:"AIzaSyDGXXx3Ybe8MTK_HmB5HtN6eLdth0rP4ec",
+            key:API_KEY,
             q:search,
             maxResults: 20,
             part:'snippet' }})

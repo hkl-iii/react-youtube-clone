@@ -37,9 +37,7 @@ class App extends Component {
   
 
     render() { 
-      // maybe adda nother render view called SearchView and dio some logic to be able to flip between the two. propbably on the onsubmit functinality to change the state. view in th main pp. propbably throuigh passing a function down with with rops.
-      
-        if(this.state.View==='video'){
+       if(this.state.View==='video'){
           return (
             <div>
               <VideoView handleSearch={(data)=>this.handleSearch(data)} videoId={this.state.videoById}/>

@@ -8,6 +8,7 @@ class Comment extends Component {
             this.state = {
                 video_id: '',
                 body: '',
+                allComments:[],
              }
         }
     handleChange = (event) =>{
@@ -28,12 +29,17 @@ class Comment extends Component {
             comment_likes: 0,
             comment_dislikes: 0,
         }
-          this.PostComment(newComment)
+        axios.post("http://127.0.0.1:8000/comment/",newComment)
      };
 
-     PostComment(data) {
-    axios.post("http://127.0.0.1:8000/comment/",data)
-    }
+      componentDidMount(){
+          this.getComments()
+      }
+
+      async getComments(){
+        const response = await axios.get("http://127.0.0.1:8000/comment/")
+        console.log(response)
+        };
 
 
     render() {

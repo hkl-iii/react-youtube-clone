@@ -5,6 +5,8 @@ import SearchBar from '../SearchBar/searchbar';
 import SuggestedVideos from '../SuggestedVideos/suggestedVideos';
 import Comment from '../Comment/comments';
 import axios from 'axios';
+import API_KEY from '../ApiKeys';
+
 
 
 class VideoView extends Component {
@@ -26,7 +28,7 @@ class VideoView extends Component {
   async getRecomdations(){
     const curretnVideo = this.state.videoById
     const response = await axios.get("https://www.googleapis.com/youtube/v3/search",{params: {
-              key:'AIzaSyDGXXx3Ybe8MTK_HmB5HtN6eLdth0rP4ec',
+              key:API_KEY,
               type: "video",
               relatedToVideoId: this.state.videoById,
               maxResults: 10,
